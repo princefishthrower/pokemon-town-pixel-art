@@ -1,8 +1,8 @@
-# Pokemon Town Pixel Art!
-
 ![Goldenrod City, but printed in weird hex form.](results/goldenrod.png)
 
-Goldenrod City, but printed in weird hex form.
+Goldenrod City, printed in weird hex form.
+
+# Pokemon Town Pixel Art!
 
 This code corresponds with a blog post [https://chrisfrew.in/data-analysis-and-pixel-art-of-towns-and-cities-in-pokemon/](https://chrisfrew.in/data-analysis-and-pixel-art-of-towns-and-cities-in-pokemon/)
 

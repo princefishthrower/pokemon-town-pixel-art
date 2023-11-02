@@ -3,8 +3,10 @@ from printer import printBinaryTree
 from tiles import createTiles
 
 # all towns and cities from johto and kanto
-lTownNames = ["azalea", "blackthorn", "celadon", "cerulean", "cherrygrove", "cianwood", "cinnabar", "ecruteak", "fuchsia", 
-"goldenrod", "lavender", "mahogany", "newbark", "olivine", "pallet", "pewter", "saffron", "vermilion", "violet", "viridian"]
+# lTownNames = ["azalea", "blackthorn", "celadon", "cerulean", "cherrygrove", "cianwood", "cinnabar", "ecruteak", "fuchsia", 
+# "goldenrod", "lavender", "mahogany", "newbark", "olivine", "pallet", "pewter", "saffron", "vermilion", "violet", "viridian"]
+
+lTownNames = ["cianwood"]
 
 for sTownName in lTownNames:
     # 1. break town map to tiles

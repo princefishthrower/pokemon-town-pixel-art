@@ -12,7 +12,7 @@ def printHex(sTownName):
     # initialize vars
     
     lDirectionVectors = [(0,-2*iSquareRadius),(-2*iSquareRadius,-1*iSquareRadius),(-2*iSquareRadius,1*iSquareRadius),(0,2*iSquareRadius),(2*iSquareRadius,1*iSquareRadius),(2*iSquareRadius,-1*iSquareRadius)] # down, SSW, NNW, up, NNE, SSE... and no, SSW is not southby -_-
-    iNumRings = 23
+    iNumRings = 24
     lRepeatImageNames = buildDuplicatesList(sTownName)
     iImageWidth = 2*iNumRings*2*iSquareRadius
     iImageHeight = 2*iNumRings*2*iSquareRadius
@@ -36,13 +36,17 @@ def printHex(sTownName):
         lCurrentDirectionVector = lDirectionVectors[ iDirectionVectorsIndex % len(lDirectionVectors) ]
         print "RING " + str(i) + "------------------------------"
         for j in range(0,iNumTiles): # print tiles for this ring
+            print (iImageIndex)
+            print (len(lRepeatImageNames))
             if iSameDirectionTimes == iDirectionRepeatAmount: # first determine direction for this
                 iSameDirectionTimes = 0 # reset direction count
                 iDirectionVectorsIndex = iDirectionVectorsIndex + 1 # increment to new direction ( we walk around the rings clockwise as we 'paint' )
                 lCurrentDirectionVector = lDirectionVectors[ iDirectionVectorsIndex % len(lDirectionVectors) ] # modulo gives us the proper index such that lDirectionVectors acts as a cirular list
             if iImageIndex == len(lRepeatImageNames): # we've exhausted all our tiles
                 print "No more tiles :( headin on out..."
-                oImage.save("results/" + sTownName + '.png') # save the finished image in the folder with its tiles
+                print "results/" + sTownName + '.png'
+                #oImage.save("results/" + sTownName + '.png') # save the finished image in the folder with its tiles
+                oImage.save(sTownName + "/" + sTownName + '_hex.png')
                 return # done processing
             sFileName = lRepeatImageNames[iImageIndex] # first tile image will be the tile that is repeated most - and will continue for the number of times
             oTileImage = Image.open(sFileName) # open the image that corresponds to the duplicate data
@@ -69,7 +73,6 @@ def drawTree(x1, y1, angle, depth, oImage, iImageIndex, lRepeatImageNames):
         oTileImage = oTileImage.resize((oTileImage.size[0]*depth, oTileImage.size[1]*depth), Image.ANTIALIAS)
         oImage.paste(oTileImage, (x2, y2)) # paste the currently indexed image at the current tree coordintes
         iImageIndex = iImageIndex + 10 # next image
-        print iImageIndex
         drawTree(x2, y2, angle - 45, depth - 1, oImage, iImageIndex, lRepeatImageNames)
         drawTree(x2, y2, angle + 45, depth - 1, oImage, iImageIndex, lRepeatImageNames)
 
